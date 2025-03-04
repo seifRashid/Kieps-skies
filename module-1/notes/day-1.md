@@ -1,4 +1,3 @@
-```
 Modern Software Development: Evolution, Paths, and Tools  
 **Part 1: Evolution of Software Development**  
 *Origins and Early Development*  
