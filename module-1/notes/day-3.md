@@ -1,5 +1,3 @@
-# Advanced CSS3 Techniques for Beginners
-
 ## 1. Understanding Layouts: Flexbox and Grid
 
 ### Flexbox: The Flexible Box Layout
