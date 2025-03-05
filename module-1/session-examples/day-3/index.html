@@ -1,183 +1,521 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <title>Web Development Course - Day 2</title>
     <meta charset="UTF-8">
+    <!-- The viewport meta tag is essential for responsive design -->
+    <!-- It ensures the page width matches the device width and sets the initial zoom level -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Day 2 of Web Development Course - HTML Forms and PHP">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>CSS Layout Techniques Tutorial</title>
+    <!-- Link to external stylesheet -->
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    <header>
-        <div class="container">
-            <h1>Web Development Course</h1>
-            <p>Day 2: HTML Forms & PHP</p>
-        </div>
+    <!-- Page Header -->
+    <header class="heading">
+        <h1>Modern CSS Layout Techniques</h1>
+        <p>A comprehensive guide to Flexbox, CSS Grid, and Responsive Design</p>
     </header>
 
+    <!-- Main Navigation -->
+    <!-- This navigation uses flexbox for layout -->
     <nav>
-        <div class="container">
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#topics">Topics</a></li>
-                <li><a href="#form">Form Example</a></li>
-                <li><a href="#media">Media</a></li>
-                <li><a href="#table">Table</a></li>
-            </ul>
-        </div>
+        <ul>
+            <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#flexbox">Flexbox</a></li>
+            <li><a href="#css-grid">CSS Grid</a></li>
+            <li><a href="#responsive">Responsive Design</a></li>
+        </ul>
     </nav>
 
-    <main class="container">
-        <section id="topics" class="card">
-            <h2>Today's Topics</h2>
-            <div class="row">
-                <div class="col">
-                    <h3>Main Topics</h3>
-                    <ul class="topic-list">
-                        <li>HTML Forms</li>
-                        <li>PHP Form Handling</li>
-                        <li>PHP Form Validation</li>
-                        <li>PHP Form Security</li>
-                    </ul>
+    <!-- Main Content Area -->
+    <main>
+        <!-- Introduction Section -->
+        <section id="introduction" class="section">
+            <h1>Introduction to Modern CSS Layouts</h1>
+            <h2>Introduction to Modern CSS Layouts</h2>
+            <h3>Introduction to Modern CSS Layouts</h3>
+            <p>This tutorial demonstrates three powerful CSS layout techniques:</p>
+            <ul>
+                <li><strong>Flexbox</strong>: One-dimensional layout method for arranging items in rows or columns</li>
+                <li><strong>CSS Grid</strong>: Two-dimensional layout system for more complex designs</li>
+                <li><strong>Media Queries</strong>: Technique to create responsive designs that adapt to different
+                    screen sizes</li>
+            </ul>
+            <p>Resize your browser window to see how the layouts adapt to different screen sizes!</p>
+        </section>
+
+        <!-- FLEXBOX SECTION -->
+        <section id="flexbox" class="section">
+            <h2>Flexbox Layout</h2>
+            <p>Flexbox is designed for one-dimensional layouts - either a row or a column.</p>
+
+            <!-- Example 1: Basic Flexbox Row -->
+            <div class="example">
+                <h3>Basic Flexbox Row</h3>
+                <p>Items arranged in a row with equal spacing:</p>
+                <!-- This container uses flexbox with justify-content: space-between -->
+                <div class="flex-container basic-row">
+                    <div class="flex-item">1</div>
+                    <div class="flex-item">2</div>
+                    <div class="flex-item">3</div>
+                    <div class="flex-item">4</div>
                 </div>
-                <div class="col">
-                    <h3>Learning Sequence</h3>
-                    <ol type="A" class="sequence-list">
-                        <li>Understanding HTML Form Elements</li>
-                        <li>Creating Forms with Proper Structure</li>
-                        <li>Processing Form Data with PHP</li>
-                    </ol>
+                <div class="code-explanation">
+                    <pre><code>/* Basic row with items spaced evenly */
+.basic-row {
+  display: flex;
+  justify-content: space-between;
+}</code></pre>
+                </div>
+            </div>
+
+            <!-- Example 2: Flexbox Direction -->
+            <div class="example">
+                <h3>Flexbox Direction</h3>
+                <p>Items arranged in a column:</p>
+                <!-- This container uses flexbox with flex-direction: column -->
+                <div class="flex-container flex-column">
+                    <div class="flex-item">1</div>
+                    <div class="flex-item">2</div>
+                    <div class="flex-item">3</div>
+                </div>
+                <div class="code-explanation">
+                    <pre><code>/* Column layout with items stacked vertically */
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+  gap: 10px; /* Adds space between items */
+}</code></pre>
+                </div>
+            </div>
+
+            <!-- Example 3: Flexbox Alignment -->
+            <div class="example">
+                <h3>Flexbox Alignment</h3>
+                <p>Different alignment options:</p>
+                <!-- This container demonstrates different alignment properties -->
+                <div class="flex-container flex-align">
+                    <div class="flex-item">Start</div>
+                    <div class="flex-item flex-align-self-center">Center</div>
+                    <div class="flex-item flex-align-self-end">End</div>
+                </div>
+                <div class="code-explanation">
+                    <pre><code>/* Container with items aligned differently */
+.flex-align {
+  display: flex;
+  height: 200px;
+  align-items: flex-start; /* Default alignment */
+}
+.flex-align-self-center {
+  align-self: center; /* This item is centered */
+}
+.flex-align-self-end {
+  align-self: flex-end; /* This item is at the bottom */
+}</code></pre>
+                </div>
+            </div>
+
+            <!-- Example 4: Flexbox Grow/Shrink -->
+            <div class="example">
+                <h3>Flexbox Grow & Shrink</h3>
+                <p>Items with different flex-grow values:</p>
+                <!-- This container demonstrates flex-grow property -->
+                <div class="flex-container flex-grow-example">
+                    <div class="flex-item flex-grow-1">flex-grow: 1</div>
+                    <div class="flex-item flex-grow-2">flex-grow: 2</div>
+                    <div class="flex-item flex-grow-1">flex-grow: 1</div>
+                </div>
+                <div class="code-explanation">
+                    <pre><code>/* Items with different growth rates */
+.flex-grow-1 {
+  flex-grow: 1; /* Takes 1 share of available space */
+}
+.flex-grow-2 {
+  flex-grow: 2; /* Takes 2 shares of available space */
+}</code></pre>
+                </div>
+            </div>
+
+            <!-- Example 5: Flexbox Wrap -->
+            <div class="example">
+                <h3>Flexbox Wrap</h3>
+                <p>Items wrapping to the next line when there's not enough space:</p>
+                <!-- This container demonstrates flex-wrap property -->
+                <div class="flex-container flex-wrap-example">
+                    <div class="flex-item">1</div>
+                    <div class="flex-item">2</div>
+                    <div class="flex-item">3</div>
+                    <div class="flex-item">4</div>
+                    <div class="flex-item">5</div>
+                    <div class="flex-item">6</div>
+                    <div class="flex-item">7</div>
+                    <div class="flex-item">8</div>
+                </div>
+                <div class="code-explanation">
+                    <pre><code>/* Container with wrapping items */
+.flex-wrap-example {
+  display: flex;
+  flex-wrap: wrap; /* Allows items to wrap to next line */
+  gap: 10px; /* Space between items */
+}</code></pre>
                 </div>
             </div>
         </section>
 
-        <section id="form" class="card">
-            <h2>Form Example</h2>
-            <form action="submit.php" method="post">
-                <div class="form-group">
-                    <label for="fname">First name:</label>
-                    <input type="text" id="fname" name="fname">
+        <!-- CSS GRID SECTION -->
+        <section id="css-grid" class="section">
+            <h2>CSS Grid Layout</h2>
+            <p>CSS Grid is designed for two-dimensional layouts - rows and columns together.</p>
+
+            <!-- Example 1: Basic Grid -->
+            <div class="example">
+                <h3>Basic Grid Layout</h3>
+                <p>A simple 3x3 grid:</p>
+                <!-- This container uses CSS Grid with 3 columns and 3 rows -->
+                <div class="grid-container basic-grid">
+                    <div class="grid-item">1</div>
+                    <div class="grid-item">2</div>
+                    <div class="grid-item">3</div>
+                    <div class="grid-item">4</div>
+                    <div class="grid-item">5</div>
+                    <div class="grid-item">6</div>
+                    <div class="grid-item">7</div>
+                    <div class="grid-item">8</div>
+                    <div class="grid-item">9</div>
                 </div>
-                <div class="form-group">
-                    <label for="lname">Last name:</label>
-                    <input type="text" id="lname" name="lname">
+                <div class="code-explanation">
+                    <pre><code>/* Basic 3x3 grid layout */
+.basic-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+  grid-template-rows: repeat(3, 100px); /* 3 rows of 100px each */
+  gap: 10px; /* Space between grid items */
+}</code></pre>
                 </div>
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email">
+            </div>
+
+            <!-- Example 2: Grid Template Areas -->
+            <div class="example">
+                <h3>Grid Template Areas</h3>
+                <p>Using named grid areas to create a layout:</p>
+                <!-- This container uses grid-template-areas for layout -->
+                <div class="grid-container grid-areas">
+                    <div class="grid-item grid-header">Header</div>
+                    <div class="grid-item grid-sidebar">Sidebar</div>
+                    <div class="grid-item grid-main">Main Content</div>
+                    <div class="grid-item grid-footer">Footer</div>
                 </div>
-                <div class="form-group">
-                    <label for="age">Age:</label>
-                    <input type="number" id="age" name="age" min="1" max="120">
+                <div class="code-explanation">
+                    <pre><code>/* Layout using named grid areas */
+.grid-areas {
+  display: grid;
+  grid-template-columns: 1fr 3fr; /* Sidebar takes 1/4, main takes 3/4 */
+  grid-template-rows: auto 1fr auto; /* Header/footer auto-sized, main takes remaining space */
+  grid-template-areas: 
+    "header header"  /* Header spans both columns */
+    "sidebar main"   /* Sidebar and main content side by side */
+    "footer footer"; /* Footer spans both columns */
+  gap: 10px;
+  height: 400px;
+}
+/* Each item is assigned to its area */
+.grid-header { grid-area: header; }
+.grid-sidebar { grid-area: sidebar; }
+.grid-main { grid-area: main; }
+.grid-footer { grid-area: footer; }</code></pre>
                 </div>
-                <div class="form-group">
-                    <label for="message">Message:</label>
-                    <textarea id="message" name="message" rows="4"></textarea>
+            </div>
+
+            <!-- Example 3: Grid Spanning -->
+            <div class="example">
+                <h3>Grid Item Spanning</h3>
+                <p>Items spanning multiple rows and columns:</p>
+                <!-- This container demonstrates items spanning multiple cells -->
+                <div class="grid-container grid-spanning">
+                    <div class="grid-item span-row-2">Span 2 Rows</div>
+                    <div class="grid-item">2</div>
+                    <div class="grid-item">3</div>
+                    <div class="grid-item span-col-2">Span 2 Columns</div>
+                    <div class="grid-item">5</div>
+                    <div class="grid-item">6</div>
                 </div>
-                <div class="form-group">
-                    <fieldset>
-                        <legend>Preferred contact method:</legend>
-                        <div class="radio-option">
-                            <input type="radio" id="contact-email" name="contact" value="email">
-                            <label for="contact-email">Email</label>
-                        </div>
-                        <div class="radio-option">
-                            <input type="radio" id="contact-phone" name="contact" value="phone">
-                            <label for="contact-phone">Phone</label>
-                        </div>
-                    </fieldset>
+                <div class="code-explanation">
+                    <pre><code>/* Grid with items spanning multiple cells */
+.grid-spanning {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 100px);
+  gap: 10px;
+}
+/* This item spans 2 rows */
+.span-row-2 {
+  grid-row: span 2;
+}
+/* This item spans 2 columns */
+.span-col-2 {
+  grid-column: span 2;
+}</code></pre>
                 </div>
-                <button type="submit" class="btn-primary">Submit</button>
-            </form>
+            </div>
+
+            <!-- Example 4: Grid Auto Flow -->
+            <div class="example">
+                <h3>Grid Auto Flow</h3>
+                <p>Demonstrating how items flow in a grid:</p>
+                <!-- This container demonstrates grid-auto-flow property -->
+                <div class="grid-container grid-auto-flow">
+                    <div class="grid-item">1</div>
+                    <div class="grid-item">2</div>
+                    <div class="grid-item">3</div>
+                    <div class="grid-item">4</div>
+                    <div class="grid-item">5</div>
+                    <div class="grid-item">6</div>
+                    <div class="grid-item">7</div>
+                    <div class="grid-item">8</div>
+                </div>
+                <div class="code-explanation">
+                    <pre><code>/* Grid with auto-flow for automatic item placement */
+.grid-auto-flow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
+  grid-auto-rows: 100px; /* Each row is 100px tall */
+  gap: 10px;
+  grid-auto-flow: dense; /* Fills in gaps automatically */
+}</code></pre>
+                </div>
+            </div>
         </section>
 
-        <section id="media" class="card">
-            <h2>Media Examples</h2>
-            <div class="image-gallery">
-                <div class="gallery-item">
-                    <img src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Food image">
+        <!-- RESPONSIVE DESIGN SECTION -->
+        <section id="responsive" class="section">
+            <h2>Responsive Design with Media Queries</h2>
+            <p>Media queries allow you to apply different styles based on device characteristics like screen width.</p>
+
+            <!-- Example 1: Responsive Layout -->
+            <div class="example">
+                <h3>Responsive Layout Example</h3>
+                <p>This layout changes based on screen size. Resize your browser to see the changes:</p>
+                <!-- This container changes layout at different breakpoints -->
+                <div class="responsive-container">
+                    <div class="responsive-item">1</div>
+                    <div class="responsive-item">2</div>
+                    <div class="responsive-item">3</div>
+                    <div class="responsive-item">4</div>
                 </div>
-                <div class="gallery-item">
-                    <img src="../day-2/images/food.jpg" alt="Food image">
+                <div class="code-explanation">
+                    <pre><code>/* Mobile first approach - starts as a column */
+.responsive-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Tablet: 768px and up - becomes 2 columns */
+@media (min-width: 768px) {
+  .responsive-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .responsive-item {
+    flex: 0 0 calc(50% - 5px); /* Two items per row */
+  }
+}
+
+/* Desktop: 1024px and up - becomes 4 columns */
+@media (min-width: 1024px) {
+  .responsive-item {
+    flex: 0 0 calc(25% - 7.5px); /* Four items per row */
+  }
+}</code></pre>
                 </div>
             </div>
-            <h3>Embedded YouTube Video</h3>
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/LGOnP9Udffo" allowfullscreen></iframe>
+
+            <!-- Example 2: Responsive Grid -->
+            <div class="example">
+                <h3>Responsive Grid Example</h3>
+                <p>A grid layout that adapts to different screen sizes:</p>
+                <!-- This grid changes columns at different breakpoints -->
+                <div class="responsive-grid">
+                    <div class="responsive-grid-item">1</div>
+                    <div class="responsive-grid-item">2</div>
+                    <div class="responsive-grid-item">3</div>
+                    <div class="responsive-grid-item">4</div>
+                    <div class="responsive-grid-item">5</div>
+                    <div class="responsive-grid-item">6</div>
+                </div>
+                <div class="code-explanation">
+                    <pre><code>/* Mobile: 1 column */
+.responsive-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* Single column */
+  gap: 10px;
+}
+
+/* Tablet: 2 columns */
+@media (min-width: 768px) {
+  .responsive-grid {
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+  }
+}
+
+/* Desktop: 3 columns */
+@media (min-width: 1024px) {
+  .responsive-grid {
+    grid-template-columns: repeat(3, 1fr); /* Three columns */
+  }
+}</code></pre>
+                </div>
+            </div>
+
+            <!-- Example 3: Common Media Query Breakpoints -->
+            <div class="example">
+                <h3>Common Media Query Breakpoints</h3>
+                <p>Standard breakpoints for different devices:</p>
+                <div class="code-explanation">
+                    <pre><code>/* Small devices (phones, 576px and up) */
+@media (min-width: 576px) { ... }
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) { ... }
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { ... }
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { ... }
+
+/* For print */
+@media print { ... }
+
+/* For dark mode */
+@media (prefers-color-scheme: dark) { ... }
+
+/* For reduced motion preferences */
+@media (prefers-reduced-motion: reduce) { ... }</code></pre>
+                </div>
+            </div>
+
+            <!-- Example 4: Responsive Typography -->
+            <div class="example">
+                <h3>Responsive Typography</h3>
+                <p>Text that changes size based on screen width:</p>
+                <!-- This text changes size at different breakpoints -->
+                <div class="responsive-text">
+                    <h2>This heading changes size</h2>
+                    <p>This paragraph also adjusts based on screen size. Resize your browser to see the effect.</p>
+                </div>
+                <div class="code-explanation">
+                    <pre><code>/* Base typography for mobile */
+.responsive-text h2 {
+  font-size: 1.5rem; /* Smaller on mobile */
+}
+
+.responsive-text p {
+  font-size: 1rem;
+}
+
+/* Medium screens */
+@media (min-width: 768px) {
+  .responsive-text h2 {
+    font-size: 2rem; /* Larger on tablets */
+  }
+}
+
+/* Large screens */
+@media (min-width: 1024px) {
+  .responsive-text h2 {
+    font-size: 2.5rem; /* Largest on desktops */
+  }
+}</code></pre>
+                </div>
             </div>
         </section>
 
-        <section id="typography" class="card">
-            <h2>Typography Examples</h2>
-            <div class="heading-examples">
-                <h1>This is heading one</h1>
-                <h2>This is heading two</h2>
-                <h3>This is heading three</h3>
-                <h4>This is heading four</h4>
-                <h5>This is heading five</h5>
-                <h6>This is heading six</h6>
-            </div>
-            <div class="text-examples">
-                <p>
-                    <b>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur,</b> 
-                    <i>odio nulla aspernatur molestiae nihil, ducimus sint perspiciatis fugiat quasi porro magnam
-                    dolorum ad rerum, sapiente ipsum nesciunt. Voluptatibus, eum optio.</i>
-                </p>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, odio nulla aspernatur molestiae nihil, 
-                    ducimus sint perspiciatis fugiat quasi porro magnam dolorum ad rerum, sapiente ipsum nesciunt.
-                </p>
-                <p>
-                    <em>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, odio nulla aspernatur molestiae nihil.
-                    </em>
-                </p>
-            </div>
-        </section>
+        <!-- COMBINED TECHNIQUES SECTION -->
+        <section id="combined" class="section">
+            <h2>Combining Flexbox, Grid, and Media Queries</h2>
+            <p>A real-world example combining all three techniques:</p>
 
-        <section id="table" class="card">
-            <h2>Table Example</h2>
-            <div class="table-responsive">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Firstname</th>
-                            <th>Lastname</th>
-                            <th>Age</th>
-                            <th>Email</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Jill</td>
-                            <td>Smith</td>
-                            <td>50</td>
-                            <td>jill.smith@example.com</td>
-                        </tr>
-                        <tr>
-                            <td>Eve</td>
-                            <td>Jackson</td>
-                            <td>94</td>
-                            <td>eve.jackson@example.com</td>
-                        </tr>
-                        <tr>
-                            <td>John</td>
-                            <td>Doe</td>
-                            <td>34</td>
-                            <td>john.doe@example.com</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="example">
+                <h3>Complete Page Layout</h3>
+                <p>A responsive page layout that uses both flexbox and grid:</p>
+                <!-- This layout combines grid for page structure and flexbox for card layout -->
+                <div class="page-layout">
+                    <header class="page-header">Header</header>
+                    <nav class="page-nav">Navigation</nav>
+                    <main class="page-main">
+                        <div class="card">Card 1</div>
+                        <div class="card">Card 2</div>
+                        <div class="card">Card 3</div>
+                        <div class="card">Card 4</div>
+                    </main>
+                    <aside class="page-sidebar">Sidebar</aside>
+                    <footer class="page-footer">Footer</footer>
+                </div>
+                <div class="code-explanation">
+                    <pre><code>/* Mobile layout: stacked vertically */
+.page-layout {
+  display: grid;
+  grid-template-areas:
+    "header"
+    "nav"
+    "main"
+    "sidebar"
+    "footer";
+  gap: 10px;
+}
+
+/* Cards use flexbox for layout */
+.page-main {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Tablet layout: sidebar next to main */
+@media (min-width: 768px) {
+  .page-layout {
+    grid-template-columns: 3fr 1fr;
+    grid-template-areas:
+      "header header"
+      "nav nav"
+      "main sidebar"
+      "footer footer";
+  }
+  
+  .page-main {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  .card {
+    flex: 0 0 calc(50% - 5px); /* Two cards per row */
+  }
+}
+
+/* Desktop layout: nav, main, sidebar in a row */
+@media (min-width: 1024px) {
+  .page-layout {
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-areas:
+      "header header header"
+      "nav main sidebar"
+      "footer footer footer";
+  }
+}</code></pre>
+                </div>
             </div>
         </section>
     </main>
 
+    <!-- Page Footer -->
     <footer>
-        <div class="container">
-            <p>© 2025 Web Development Course. All rights reserved.</p>
-        </div>
+        <p>Created for teaching CSS layout techniques</p>
+        <p>© 2025 Web Development Course</p>
     </footer>
 </body>
-</html>
 
+</html>
