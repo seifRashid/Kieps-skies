@@ -22,20 +22,21 @@ You should NOT redeclare the variables a and b.
 Hint: Use this code playground to run your code and see if it matches your expectations.
 
 Hint: The solution is just 3 lines of code.
-**
+```javascript
 function test() {
     var a = "3";
     var b = "8";
     
 /***********Do not change the code above 👆*******/
-//Write your code on lines 7 - 9:
-   var c = a;
+
+// Write your code on lines 7 - 9:
+    var c = a;
     a = b;
     b = c;
-    
-    
+
 /***********Do not change the code below 👇*******/
 
     console.log("a is " + a);
     console.log("b is " + b);
 }
+```
