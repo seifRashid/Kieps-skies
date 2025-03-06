@@ -30,9 +30,6 @@ function test() {
 /***********Do not change the code above 👆*******/
 
 // Write your code on lines 7 - 9:
-    var c = a;
-    a = b;
-    b = c;
 
 /***********Do not change the code below 👇*******/
 
